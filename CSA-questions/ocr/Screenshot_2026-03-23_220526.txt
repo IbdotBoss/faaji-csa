@@ -1,0 +1,10 @@
+Question 7 /14
+
+What is the purpose of merging Update Sets in ServiceNow?
+© A Convert XML to JSON before import
+
+O B. Create a parent with scoped children for a release
+
+@ Combine records from several sets into a single set
+
+© DLink Update Sets across instances for real-time sync

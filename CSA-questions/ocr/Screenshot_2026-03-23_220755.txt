@@ -1,0 +1,10 @@
+Question 12 /14
+
+Which activity is identified as an ideal use of Update Sets?
+© AMigrating incident data between instances
+
+@ _B Storing and applying specific versions of applications
+
+© _©-.Managing user passwords across instances
+
+© D.Scheduling discovery scans

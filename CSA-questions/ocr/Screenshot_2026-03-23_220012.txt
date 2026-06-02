@@ -1,0 +1,12 @@
+Question 1/14
+
+Which record types are automatically captured by the current Update Set?
+[Choose 2 answers ]
+
+Ey 4 Business rules
+
+([)_B.User password records
+
+(FD) G-Incident task data
+
+BBD. uipolicies

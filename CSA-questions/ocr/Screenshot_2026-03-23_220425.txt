@@ -1,0 +1,13 @@
+Question 5 /14
+
+What does Instance Scan evaluate?
+[Choose 2 answers ]
+
+O A.License consumption tiers
+(]_B.User login frequency
+
+(FJ ¢-stAbreach counts
+
+BB D-Risk patterns
+
+BBE Best practice violations

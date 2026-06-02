@@ -1,0 +1,14 @@
+Question 2/14
+
+Which capabilities are associated with compare tools for conflict resolution?
+[Choose 2 answers ]
+
+O A. Rollback update set
+
+(1) _B.Show update history
+
+EBC. Identity dupticate or competing records
+
+[BB _«D- Preview local and remote sets
+
+([]_E-Scan Update Set

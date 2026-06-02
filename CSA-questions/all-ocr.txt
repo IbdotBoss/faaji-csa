@@ -1,0 +1,182 @@
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220012.txt
+Question 1/14
+
+Which record types are automatically captured by the current Update Set?
+[Choose 2 answers ]
+
+Ey 4 Business rules
+
+([)_B.User password records
+
+(FD) G-Incident task data
+
+BBD. uipolicies
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220217.txt
+Question 2/14
+
+Which capabilities are associated with compare tools for conflict resolution?
+[Choose 2 answers ]
+
+O A. Rollback update set
+
+(1) _B.Show update history
+
+EBC. Identity dupticate or competing records
+
+[BB _«D- Preview local and remote sets
+
+([]_E-Scan Update Set
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220301.txt
+Question 3 /14
+
+What is an Update Set?
+
+@ 4 Containers for configuration changes that track changes to tables
+© B.Adata archival utility for CMDB records
+
+© ©¢-Amechanism for cloning entire instances
+
+© D-Aruntime engine for Workfiow Studio executions
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220339.txt
+Question 4/14
+
+Which tasks does a user perform when inspecting and reporting on Update Sets?
+[Choose 2 answers ]
+
+([] A Export Update Sets to CSV
+
+E28. Compare content with the target instance to spot conflicts
+
+Oo C. Review the Update set Logs table
+
+[ED . Browse included updates and drill into individual records
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220425.txt
+Question 5 /14
+
+What does Instance Scan evaluate?
+[Choose 2 answers ]
+
+O A.License consumption tiers
+(]_B.User login frequency
+
+(FJ ¢-stAbreach counts
+
+BB D-Risk patterns
+
+BBE Best practice violations
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220459.txt
+Question 6/14
+
+Which components does an Update Set contain?
+[Choose 2 answers]
+
+B A Status and metadata for retrieval, preview, and commit
+(J) BMD Server connection details
+
+(1) ¢ Plugin activation history
+
+[BB - The configuration deltas
+
+(1) E.usersession audit logs
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220526.txt
+Question 7 /14
+
+What is the purpose of merging Update Sets in ServiceNow?
+© A Convert XML to JSON before import
+
+O B. Create a parent with scoped children for a release
+
+@ Combine records from several sets into a single set
+
+© DLink Update Sets across instances for real-time sync
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220603.txt
+Question 8/14
+
+What action do administrators perform when inspecting an Update Set?
+@ 4 View differences against current versions
+
+O B. Export user roles to CSV
+
+© Runa tfullinstance clone
+
+© Du trigger discovery schedules
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220631.txt
+Question 9 /14
+
+Which action is explicitly warned against because it can damage the system?
+© A-Exporting an Update Set to XML
+
+O B. Setting an Update Set to Complete
+
+@ C Rolling back from the Default Update Set
+
+© D. Viewing differences against current versions
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220658.txt
+Question 10 / 14
+
+Which format is used to represent Update Sets?
+@ axm
+
+© Bcsv
+
+© ¢.Json
+
+© D-YAML
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220728.txt
+Question 11/14
+
+What is the correct order of steps for moving Completed Update Sets between instances
+@ _4.&xport from instance A Import (or Retrieve) into instance B Preview in instance B Commit in instance B
+
+© B-Export (or Retrieve) from instance A Commit in instance B Preview in instance B Import into instance B
+
+© C.Import into instance A Commiitin instance B Preview in instance B Export in instance B
+
+© D.Retrieve from instance A Commit in instance B Preview in instance B Import in instance B
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220755.txt
+Question 12 /14
+
+Which activity is identified as an ideal use of Update Sets?
+© AMigrating incident data between instances
+
+@ _B Storing and applying specific versions of applications
+
+© _©-.Managing user passwords across instances
+
+© D.Scheduling discovery scans
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220822.txt
+Question 13 /14
+
+Which is listed as a component contained within an Update Set?
+© A-Attachment binaries (in records)
+
+© B.User session tokens
+
+@ © The records changed (as update records)
+
+© D.MID Server credentials
+========
+/home/ubuntu/hermes-workspace/Faajaa-Share/ServiceNow/CSA-questions/ocr/Screenshot_2026-03-23_220848.txt
+Question 14/14
+
+What is the purpose of marking an Update Set as “Ignore” in production after committing?
+© ATo remove it from the history of changes
+
+O B. To automatically rollback changes
+
+@ © Toprevent reapplication during a future retrieve
+
+© _ D-To compress its XML for storage

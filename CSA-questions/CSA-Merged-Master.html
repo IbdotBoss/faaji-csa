@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ServiceNow CSA Practice — Merged Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Berkeley+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f5f2ed; --surface:#ffffff; --ink:#141311; --muted:#6b6560; --border:#e6e1da;
+    --accent:#b45309; --accent-soft:#fff7ed;
+    --ok:#166534; --ok-bg:#f0fdf4; --bad:#991b1b; --bad-bg:#fef2f2;
+    --rule:#ece8e1;
+    --shadow:0 1px 2px rgba(20,19,17,.04),0 6px 18px rgba(20,19,17,.06);
+    --shadow-hover:0 4px 12px rgba(20,19,17,.08),0 12px 30px rgba(20,19,17,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Geist',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' opacity='.45'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  header{position:sticky;top:0;z-index:50;background:rgba(245,242,237,.78);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  h1{font-family:'Berkeley Mono',monospace;font-size:15px;font-weight:500;letter-spacing:-.2px;margin:0;color:var(--ink)}
+  .pill{font-family:'Berkeley Mono',monospace;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:999px}
+  .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  button{font-family:'Geist',system-ui,sans-serif;font-size:14px;font-weight:500;background:var(--surface);color:var(--ink);border:1px solid var(--border);padding:8px 14px;border-radius:10px;cursor:pointer;transition:transform .08s ease,border-color .15s ease,box-shadow .15s ease}
+  button:hover{border-color:#cbc5bd;box-shadow:var(--shadow)}
+  button:active{transform:translateY(1px)}
+  button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  button.primary:hover{background:#2a2723}
+  main{max-width:980px;margin:24px auto;padding:0 18px 110px}
+  .domain{margin:34px 0 10px;display:flex;align-items:center;gap:12px;position:sticky;top:62px;z-index:20;background:rgba(245,242,237,.68);backdrop-filter:blur(10px);padding:10px 2px}
+  .domain-title{font-family:'Berkeley Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .domain::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--rule),transparent 90%)}
+  .q{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 22px 18px;margin:14px 0;box-shadow:var(--shadow);transition:box-shadow .18s ease,border-color .18s ease}
+  .q:hover{box-shadow:var(--shadow-hover);border-color:#d8d3ca}
+  .q-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap}
+  .q h3{font-size:16px;font-weight:500;margin:0;line-height:1.45;letter-spacing:-.1px}
+  .badge{font-family:'Berkeley Mono',monospace;font-size:11px;background:var(--accent-soft);color:var(--accent);border:1px solid #fed7aa;padding:4px 10px;border-radius:999px;white-space:nowrap;font-weight:500}
+  .badge.pass{background:var(--ok-bg);color:var(--ok);border-color:#bbf7d0}
+  .badge.fail{background:var(--bad-bg);color:var(--bad);border-color:#fecaca}
+  .opts{display:grid;gap:8px}
+  label.choice{display:flex;gap:12px;align-items:flex-start;background:#faf9f7;border:1px solid var(--border);padding:11px 14px;border-radius:12px;cursor:pointer;transition:background .12s ease,border-color .12s ease}
+  label.choice:hover{border-color:#cbc5bd;background:#fff}
+  input[type=checkbox],input[type=radio]{margin-top:3px;accent-color:var(--accent);width:17px;height:17px}
+  .explain{margin-top:14px;padding:14px 16px;border-radius:12px;background:linear-gradient(180deg,#fff,#faf9f7);border:1px solid var(--border);color:#3f3b37;display:none;font-size:14.5px;line-height:1.6}
+  .explain.show{display:block}
+  .explain.ok{border-color:#bbf7d0;background:linear-gradient(180deg,#f0fdf4,#ecfdf5)}
+  .explain.bad{border-color:#fecaca;background:linear-gradient(180deg,#fef2f2,#fff5f5);color:#7f1d1d}
+  #sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(245,242,237,.78);backdrop-filter:blur(14px) saturate(140%);border-top:1px solid var(--border);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;z-index:40}
+  .stat{font-family:'Berkeley Mono',monospace;font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:6px 12px;border-radius:10px}
+  .stat strong{color:var(--ink);font-weight:600}
+  .done #sticky{background:rgba(245,242,237,.92)}
+  @media (max-width:640px){.q{padding:14px 16px} header{flex-direction:column;align-items:flex-start} .q-head{flex-direction:column;gap:6px} .badge{width:max-content}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>ServiceNow CSA Practice — Merged Set</h1>
+    <span class="pill" id="totalPill">loading…</span>
+  </div>
+  <div class="controls">
+    <button onclick="shuffle()">Shuffle</button>
+    <button onclick="resetAll()">Reset</button>
+    <button class="primary" onclick="submitAll()">Submit all</button>
+  </div>
+</header>
+
+<main id="qwrap"></main>
+
+<div id="sticky">
+  <div class="stat">Progress <strong id="prog">0 / 0</strong></div>
+  <div class="stat">Score <strong id="score">0%</strong></div>
+  <div style="display:flex;gap:8px">
+    <button onclick="submitAll()">Submit all</button>
+    <button onclick="resetAll()">Reset</button>
+  </div>
+</div>
+
+<script>
+const questions = [];
+</script>
+</body>
+</html>

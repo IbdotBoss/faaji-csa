@@ -1,0 +1,10 @@
+Question 14/14
+
+What is the purpose of marking an Update Set as “Ignore” in production after committing?
+© ATo remove it from the history of changes
+
+O B. To automatically rollback changes
+
+@ © Toprevent reapplication during a future retrieve
+
+© _ D-To compress its XML for storage

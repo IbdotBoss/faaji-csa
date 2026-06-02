@@ -1,0 +1,10 @@
+Question 8/14
+
+What action do administrators perform when inspecting an Update Set?
+@ 4 View differences against current versions
+
+O B. Export user roles to CSV
+
+© Runa tfullinstance clone
+
+© Du trigger discovery schedules

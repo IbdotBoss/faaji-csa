@@ -1,0 +1,10 @@
+Question 13 /14
+
+Which is listed as a component contained within an Update Set?
+© A-Attachment binaries (in records)
+
+© B.User session tokens
+
+@ © The records changed (as update records)
+
+© D.MID Server credentials

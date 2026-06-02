@@ -1,0 +1,12 @@
+Question 4/14
+
+Which tasks does a user perform when inspecting and reporting on Update Sets?
+[Choose 2 answers ]
+
+([] A Export Update Sets to CSV
+
+E28. Compare content with the target instance to spot conflicts
+
+Oo C. Review the Update set Logs table
+
+[ED . Browse included updates and drill into individual records

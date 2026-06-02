@@ -1,0 +1,10 @@
+Question 3 /14
+
+What is an Update Set?
+
+@ 4 Containers for configuration changes that track changes to tables
+© B.Adata archival utility for CMDB records
+
+© ©¢-Amechanism for cloning entire instances
+
+© D-Aruntime engine for Workfiow Studio executions

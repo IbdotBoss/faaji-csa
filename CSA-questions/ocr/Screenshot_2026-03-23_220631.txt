@@ -1,0 +1,10 @@
+Question 9 /14
+
+Which action is explicitly warned against because it can damage the system?
+© A-Exporting an Update Set to XML
+
+O B. Setting an Update Set to Complete
+
+@ C Rolling back from the Default Update Set
+
+© D. Viewing differences against current versions

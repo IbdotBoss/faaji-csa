@@ -1,0 +1,10 @@
+Question 11/14
+
+What is the correct order of steps for moving Completed Update Sets between instances
+@ _4.&xport from instance A Import (or Retrieve) into instance B Preview in instance B Commit in instance B
+
+© B-Export (or Retrieve) from instance A Commit in instance B Preview in instance B Import into instance B
+
+© C.Import into instance A Commiitin instance B Preview in instance B Export in instance B
+
+© D.Retrieve from instance A Commit in instance B Preview in instance B Import in instance B

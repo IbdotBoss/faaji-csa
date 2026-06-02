@@ -1,0 +1,13 @@
+Question 6/14
+
+Which components does an Update Set contain?
+[Choose 2 answers]
+
+B A Status and metadata for retrieval, preview, and commit
+(J) BMD Server connection details
+
+(1) ¢ Plugin activation history
+
+[BB - The configuration deltas
+
+(1) E.usersession audit logs
