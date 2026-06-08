@@ -3,186 +3,195 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ServiceNow CSA Practice</title>
+<title>ServiceNow CSA Practice — Master Bank (94 Questions)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Berkeley+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-  body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fff;color:#111;margin:0}
-  main{max-width:960px;margin:0 auto;padding:24px 20px}
-  .q{border:1px solid #e5e5e5;border-radius:12px;padding:16px 18px;margin:14px 0}
-  .q h3{margin:0 0 10px;font-size:16px}
+  :root{
+    --bg:#f5f2ed; --surface:#ffffff; --ink:#141311; --muted:#6b6560; --border:#e6e1da;
+    --accent:#b45309; --accent-soft:#fff7ed;
+    --ok:#166534; --ok-bg:#f0fdf4; --bad:#991b1b; --bad-bg:#fef2f2;
+    --rule:#ece8e1;
+    --shadow:0 1px 2px rgba(20,19,17,.04),0 6px 18px rgba(20,19,17,.06);
+    --shadow-hover:0 4px 12px rgba(20,19,17,.08),0 12px 30px rgba(20,19,17,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Geist',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' opacity='.45'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  header{position:sticky;top:0;z-index:50;background:rgba(245,242,237,.78);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  h1{font-family:'Berkeley Mono',monospace;font-size:15px;font-weight:500;letter-spacing:-.2px;margin:0;color:var(--ink)}
+  .pill{font-family:'Berkeley Mono',monospace;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:999px}
+  .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  button{font-family:'Geist',system-ui,sans-serif;font-size:14px;font-weight:500;background:var(--surface);color:var(--ink);border:1px solid var(--border);padding:8px 14px;border-radius:10px;cursor:pointer;transition:transform .08s ease,border-color .15s ease,box-shadow .15s ease}
+  button:hover{border-color:#cbc5bd;box-shadow:var(--shadow)}
+  button:active{transform:translateY(1px)}
+  button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  button.primary:hover{background:#2a2723}
+  main{max-width:980px;margin:24px auto;padding:0 18px 110px}
+  .domain{margin:34px 0 10px;display:flex;align-items:center;gap:12px;position:sticky;top:62px;z-index:20;background:rgba(245,242,237,.68);backdrop-filter:blur(10px);padding:10px 2px}
+  .domain-title{font-family:'Berkeley Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .domain::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--rule),transparent 90%)}
+  .q{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 22px 18px;margin:14px 0;box-shadow:var(--shadow);transition:box-shadow .18s ease,border-color .18s ease}
+  .q:hover{box-shadow:var(--shadow-hover);border-color:#d8d3ca}
+  .q-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap}
+  .q h3{font-size:16px;font-weight:500;margin:0;line-height:1.45;letter-spacing:-.1px}
+  .badge{font-family:'Berkeley Mono',monospace;font-size:11px;background:var(--accent-soft);color:var(--accent);border:1px solid #fed7aa;padding:4px 10px;border-radius:999px;white-space:nowrap;font-weight:500}
+  .badge.pass{background:var(--ok-bg);color:var(--ok);border-color:#bbf7d0}
+  .badge.fail{background:var(--bad-bg);color:var(--bad);border-color:#fecaca}
   .opts{display:grid;gap:8px}
-  label{display:flex;gap:10px;align-items:flex-start;border:1px solid #eee;border-radius:10px;padding:10px 12px;cursor:pointer}
-  input{margin-top:4px}
-  .actions{display:flex;gap:10px;margin:20px 0}
-  button{padding:10px 14px;border-radius:10px;border:1px solid #ddd;background:#fff;cursor:pointer}
-  .primary{background:#111;color:#fff;border-color:#111}
-  .result{margin-top:24px;padding:14px;border-radius:12px;display:none}
-  .ok{background:#f6fdf6;border:1px solid #cde8cd}
-  .bad{background:#fff6f6;border:1px solid #f3c8c8}
-  summary{cursor:pointer;color:#444}
-  hr{border:none;border-top:1px solid #eee;margin:24px 0}
+  label.choice{display:flex;gap:12px;align-items:flex-start;background:#faf9f7;border:1px solid var(--border);padding:11px 14px;border-radius:12px;cursor:pointer;transition:background .12s ease,border-color .12s ease}
+  label.choice:hover{border-color:#cbc5bd;background:#fff}
+  input[type=checkbox],input[type=radio]{margin-top:3px;accent-color:var(--accent);width:17px;height:17px}
+  .explain{margin-top:14px;padding:14px 16px;border-radius:12px;background:linear-gradient(180deg,#fff,#faf9f7);border:1px solid var(--border);color:#3f3b37;display:none;font-size:14.5px;line-height:1.6}
+  .explain.show{display:block}
+  .explain.ok{border-color:#bbf7d0;background:linear-gradient(180deg,#f0fdf4,#ecfdf5)}
+  .explain.bad{border-color:#fecaca;background:linear-gradient(180deg,#fef2f2,#fff5f5);color:#7f1d1d}
+  #sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(245,242,237,.78);backdrop-filter:blur(14px) saturate(140%);border-top:1px solid var(--border);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;z-index:40}
+  .stat{font-family:'Berkeley Mono',monospace;font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:6px 12px;border-radius:10px}
+  .stat strong{color:var(--ink);font-weight:600}
+  .done #sticky{background:rgba(245,242,237,.92)}
+  @media (max-width:640px){.q{padding:14px 16px} header{flex-direction:column;align-items:flex-start} .q-head{flex-direction:column;gap:6px} .badge{width:max-content}}
 </style>
 </head>
 <body>
-<main>
-  <h1>ServiceNow CSA Practice — Master Bank</h1>
-  <p id="status">70 questions</p>
-  <div class="actions">
-    <button class="primary" id="submit">Submit all</button>
-    <button id="reset">Reset</button>
-    <button id="shuffle">Shuffle</button>
+<header>
+  <div class="brand">
+    <h1>ServiceNow CSA Practice — Master Bank</h1>
+    <span class="pill" id="totalPill">loading…</span>
   </div>
-  <div id="questions"></div>
-  <div id="result" class="result"></div>
-</main>
+  <div class="controls">
+    <button onclick="shuffle()">Shuffle</button>
+    <button onclick="resetAll()">Reset</button>
+    <button class="primary" onclick="submitAll()">Submit all</button>
+  </div>
+</header>
+
+<main id="qwrap"></main>
+
+<div id="sticky">
+  <div class="stat">Progress <strong id="prog">0 / 0</strong></div>
+  <div class="stat">Score <strong id="score">0%</strong></div>
+  <div style="display:flex;gap:8px">
+    <button onclick="submitAll()">Submit all</button>
+    <button onclick="resetAll()">Reset</button>
+  </div>
+</div>
+
 <script>
-const questions = [
-{"d":"Platform Overview and Navigation","t":"Which of the following applications is available to ALL users by default in ServiceNow?","type":"sng","opts":["Change","Incident","Facilities","Self Service"],"c":[3],"e":"Self Service is the only app available to all users by default."},
-{"d":"Platform Overview and Navigation","t":"Which module displays a list of tasks assigned to a user's group, but not yet assigned to an individual user?","type":"sng","opts":["My Teams Work","My Groups Work","My Groups Tasks","My Teams Tasks"],"c":[1],"e":"\"My Groups Work\" is the group queue not yet assigned to an individual."},
-{"d":"Platform Overview and Navigation","t":"What is the \"Application Navigator\" used for in ServiceNow?","type":"sng","opts":["Tracking the history of record changes","Accessing all installed applications and their modules","Defining workflow routing logic","Managing database table schemas"],"c":[1],"e":"Application Navigator is the left sidebar with all apps/modules."},
-{"d":"Platform Overview and Navigation","t":"A user wants to quickly return to a frequently used module. Which feature should they use?","type":"sng","opts":["System Properties","Favorites (starred items)","Update Sets","The Search bar only"],"c":[1],"e":"Favorites are bookmarks for quick navigation."},
-{"d":"Platform Overview and Navigation","t":"In Next Experience (Unified Navigation), where does a user go to set personal preferences such as time zone, language, and theme?","type":"sng","opts":["System Properties > User Preferences","User Administration > User Profile","The Profile menu (avatar/name in the top-right)","System Settings > Global"],"c":[2],"e":"Personal preferences live in the user profile menu."},
-{"d":"Platform Overview and Navigation","t":"What is the \"Service Portal\" in ServiceNow?","type":"sng","opts":["A consumer-friendly web interface for end users to submit requests, search knowledge, and track tickets — separate from the backend admin UI","An admin portal for managing MID Servers and plugins","A reporting portal for generating compliance reports","A portal used only for change management approvals"],"c":[0],"e":"Service Portal is the self-service front end for non-admin users."},
-{"d":"Instance Configuration","t":"What is a \"Plugin\" in ServiceNow?","type":"sng","opts":["An optional feature or application that can be activated via the Plugin Manager to extend platform functionality","A third-party JavaScript library embedded in a client script","A MID Server extension for protocol translation","A widget added to the Service Portal"],"c":[0],"e":"Plugin = optional feature activated via Plugin Manager."},
-{"d":"Instance Configuration","t":"What is the purpose of \"System Properties\" (sys_properties)?","type":"sng","opts":["Read-only metadata about the current platform version","Global key-value configuration settings that control platform and application behavior without code changes","A log of all system events for audit purposes","The definition of field types in the database dictionary"],"c":[1],"e":"System Properties = global key-value config settings."},
-{"d":"Instance Configuration","t":"What is \"Instance Scan\" used for?","type":"sng","opts":["Scanning the CMDB for stale CI records","Automatically analyzing instance configurations to detect risk patterns and best practice violations","Auditing user login sessions and IP addresses","Scanning Update Set XML for conflicts before committing"],"c":[1],"e":"Instance Scan finds risk patterns and best practice violations."},
-{"d":"Instance Configuration","t":"A ServiceNow admin wants to copy the production instance's data and configuration onto a development instance. What process does this describe?","type":"sng","opts":["Export/Import via Update Sets","Instance Cloning","Data Migration via Import Sets","Plugin synchronization"],"c":[1],"e":"Cloning copies prod to a sub-production instance."},
-{"d":"Instance Configuration","t":"What is a \"MID Server\"?","type":"sng","opts":["A secondary ServiceNow instance used for load balancing","A Java application installed on a customer's on-premises network that allows the cloud instance to communicate with resources behind the firewall","A caching layer between the browser and the ServiceNow instance","A middleware that converts REST calls to SOAP for legacy integrations"],"c":[1],"e":"MID Server is an on-prem Java agent bridging cloud to LAN."},
-{"d":"Instance Configuration","t":"A ServiceNow admin wants to personalize a list by changing which columns are displayed. What feature allows this?","type":"sng","opts":["Form Designer","List Personalization (gear icon or right-click column header)","Dictionary Override","System Properties"],"c":[1],"e":"List Personalization allows personal column display customization."},
-{"d":"Configuring Applications for Collaboration","t":"In a ServiceNow list, what is the purpose of the \"breadcrumb\" filter at the top?","type":"sng","opts":["It shows the navigation path (application > module) for quick back-navigation","It displays the active filter conditions applied to the list and allows quick removal","It defines which columns are shown in the list","It indicates the update set that last modified the records"],"c":[1],"e":"The breadcrumb filter shows active filter conditions for quick removal."},
-{"d":"Configuring Applications for Collaboration","t":"What does \"grouping\" records in a list do?","type":"sng","opts":["Merges duplicate records into one","Organizes list rows into collapsible sections based on a chosen field value","Applies a mandatory permanent filter","Exports records grouped by field to a CSV"],"c":[1],"e":"Grouping collapses list rows into sections by field value."},
-{"d":"Configuring Applications for Collaboration","t":"Which of the following correctly describes a \"View\" on a ServiceNow form?","type":"sng","opts":["A saved condition that filters which records are shown in a list","A specific arrangement of fields on a form designed for a particular role or context","A dashboard tab combining multiple reports","A read-only snapshot of a record at a specific point in time"],"c":[1],"e":"A View is a form field arrangement for a role or context."},
-{"d":"Configuring Applications for Collaboration","t":"What is a \"Form Template\" in ServiceNow used for?","type":"sng","opts":["Designing the visual layout of a dashboard","Pre-populating a new record's fields with saved default values to speed up data entry","Creating a reusable workflow stage","Defining required fields for import sets"],"c":[1],"e":"Form Template is saved field defaults to speed up record creation."},
-{"d":"Configuring Applications for Collaboration","t":"What is the purpose of \"Tags\" in ServiceNow?","type":"sng","opts":["Labels that can be applied to records to help users organize and find related records across different tables","Labels applied to fields to mark them as mandatory","System-defined categories used in the Service Catalog","Metadata markers on Update Set records"],"c":[0],"e":"Tags organize and find related records across tables."},
-{"d":"Configuring Applications for Collaboration","t":"Which of the following best describes a Visual Task Board (VTB) in ServiceNow?","type":"sng","opts":["A Kanban-style board interface for visualizing and managing tasks across lanes/stages","A reporting dashboard that aggregates task metrics","A form layout editor for task records","A workflow diagram showing approval stages"],"c":[0],"e":"VTB is a Kanban-style board for task visualization."},
-{"d":"Configuring Applications for Collaboration","t":"What are the three types of Visual Task Boards (VTBs)? *(Choose 3)*","type":"mul","opts":["Freeform boards — display any task records; members can manually add/remove cards and define lanes","Flexible boards — filter-driven cards removed automatically when tasks no longer match; custom lanes allowed","Guided boards — lanes correspond to field values (e.g., State) and cannot be manually edited","Static boards — read-only snapshots of task states","Report boards — generated from a PA indicator"],"c":[0,1,2],"e":"Three types: Freeform, Flexible, Guided."},
-{"d":"Configuring Applications for Collaboration","t":"What is the difference between a \"Report\" and a \"Dashboard\" in ServiceNow?","type":"sng","opts":["A report is a single data visualization; a dashboard aggregates multiple reports and widgets onto one page","Reports are admin-only; dashboards are for all users","Reports use PA indicators; dashboards use table data only","Reports run on-demand; dashboards update automatically only"],"c":[0],"e":"Report = single viz; Dashboard = collection of reports/widgets."},
-{"d":"Configuring Applications for Collaboration","t":"By default, who can see a report after it has been created?","type":"sng","opts":["All users on the instance","Only the report creator — it must be explicitly shared","All users with the itil role","All members of the creator's assignment group"],"c":[1],"e":"Reports are private by default; creator must share."},
-{"d":"Configuring Applications for Collaboration","t":"Which report type is best for showing the proportion of open incidents by category?","type":"sng","opts":["Time Series","Gauge","Pie/Donut chart","Single Score"],"c":[2],"e":"Pie/Donut shows proportion/distribution."},
-{"d":"Configuring Applications for Collaboration","t":"What does \"Performance Analytics\" add beyond basic table reports?","type":"sng","opts":["The ability to collect indicator data over time and track KPI trends historically; standard reports only show a point-in-time snapshot","Real-time streaming from external BI tools","AI-powered narrative summaries of trend data","Automated export to PowerPoint"],"c":[0],"e":"PA adds historical trend collection; basic reports are point-in-time only."},
-{"d":"Configuring Applications for Collaboration","t":"What is an \"Email Notification\" in ServiceNow?","type":"sng","opts":["An automated email triggered by a defined record event or condition and sent to specified recipients","An inbound action that converts incoming emails into records","A scheduled batch email report sent to all admins","A notification sent only when a record is manually flagged"],"c":[0],"e":"Email Notification is an event-driven automated email."},
-{"d":"Configuring Applications for Collaboration","t":"What are \"Work Notes\" vs \"Additional Comments\" on a task record?","type":"sng","opts":["Both are visible to all users including customers","Work Notes are internal (visible to agents/groups); Additional Comments are customer-facing","Work Notes require approval to add; Additional Comments do not","Work Notes are sent by email automatically; Additional Comments are not"],"c":[1],"e":"Work Notes are internal; Additional Comments are customer-visible."},
-{"d":"Configuring Applications for Collaboration","t":"What is the purpose of an SLA (Service Level Agreement) on a task?","type":"sng","opts":["A commitment that defines time targets for response and/or resolution of a task; triggers escalations when breached","A role required to close an incident","A catalog item for requesting service agreements","A business rule that runs when a task is assigned"],"c":[0],"e":"SLA sets time targets and triggers escalations on breach."},
-{"d":"Self-Service & Automation","t":"What is a \"Knowledge Base\" in ServiceNow used for? *(Choose 2)*","type":"mul","opts":["Storing articles that help users and agents find solutions and answers without opening tickets","Storing CI configuration data for the CMDB","Reducing repeat incidents by deflecting users to self-service answers","Automating approval routing for change requests"],"c":[0,2],"e":"KB stores self-service answers and helps deflect repeat incidents."},
-{"d":"Self-Service & Automation","t":"Which role is typically required to publish a knowledge article in ServiceNow?","type":"sng","opts":["admin","knowledge or knowledge_admin","itil","catalog_admin"],"c":[1],"e":"knowledge or knowledge_admin role is typically required to publish."},
-{"d":"Self-Service & Automation","t":"What controls which users can see a specific Knowledge Base or Service Catalog item?","type":"sng","opts":["ACL rules on the kb_knowledge table","User Criteria","Business Rules with role conditions","System Properties"],"c":[1],"e":"User Criteria control visibility for KB and catalog items."},
-{"d":"Self-Service & Automation","t":"In the Service Catalog, what is a \"Catalog Item\"?","type":"sng","opts":["A predefined offering (e.g., new laptop, software access) that end users can request","A configuration record containing workflow routing logic","A report showing pending service request fulfillment status","A role granting access to submit service requests"],"c":[0],"e":"Catalog Item is a requestable offering in the service catalog."},
-{"d":"Self-Service & Automation","t":"What record is created when a user submits a Service Catalog request?","type":"sng","opts":["An Incident (inc)","A Request (sc_request) containing one or more Requested Items (sc_req_item)","A Task (task) and a Change Request (change_request)","A Problem (problem) and a Service Request (sc_task)"],"c":[1],"e":"sc_request is the parent; sc_req_item is one per catalog line item."},
-{"d":"Self-Service & Automation","t":"In Flow Designer (Workflow Studio), what is the difference between a \"Flow\" and a \"Subflow\"?","type":"sng","opts":["A Flow is triggered by an event, schedule, or service catalog item; a Subflow is a reusable logic component called from within a flow or other subflows","Flows run client-side; Subflows run server-side","Flows are limited to one application scope; Subflows can be global","Flows require scripting; Subflows are no-code only"],"c":[0],"e":"Flow = triggered automation; Subflow = reusable component."},
-{"d":"Self-Service & Automation","t":"Which of the following can trigger a Flow Designer flow? *(Choose 2)*","type":"mul","opts":["A record being created or updated","A scheduled date/time or recurring interval","A MID Server heartbeat event","A plugin being activated"],"c":[0,1],"e":"Record triggers and scheduled triggers are core types."},
-{"d":"Self-Service & Automation","t":"What is Virtual Agent in ServiceNow?","type":"sng","opts":["An AI-powered chatbot platform that provides user assistance through automated conversations, helping users get information and complete tasks without agent involvement","A background automation that runs scripts on a schedule","An agent desktop tool that suggests answers to live agents","A testing framework for validating workflow automations"],"c":[0],"e":"Virtual Agent is an AI chatbot for user self-service."},
-{"d":"Self-Service & Automation","t":"What does Virtual Agent deflection mean?","type":"sng","opts":["Routing a ticket to a different assignment group","Resolving a user's issue through the chatbot so that no human agent ticket is created","Redirecting a user from the Service Portal to the backend UI","Moving a conversation from Virtual Agent to email"],"c":[1],"e":"Deflection means user is resolved by bot, no ticket needed."},
-{"d":"Database Management and Platform Security","t":"In ServiceNow, what is a \"Table\"?","type":"sng","opts":["A collection of records where each row is a record and each column is a field","A grouping of workflow stages for a process","A container for Update Set configuration changes","A form layout template"],"c":[0],"e":"Table = rows (records) and columns (fields) in the database."},
-{"d":"Database Management and Platform Security","t":"Which table is the parent (base) for Incident, Problem, and Change Request?","type":"sng","opts":["sys_metadata","cmdb_ci","task","sys_user"],"c":[2],"e":"task is the parent table for incident, problem, change, and request."},
-{"d":"Database Management and Platform Security","t":"What does it mean for one table to \"extend\" another?","type":"sng","opts":["The child table inherits all fields from the parent and can add its own unique fields","The child table copies the parent's records on a nightly schedule","The child table's records replace the parent's records when deployed","The child table holds a foreign key reference to the parent's primary key only"],"c":[0],"e":"Extending means inheritance: child gets all parent fields plus its own."},
-{"d":"Database Management and Platform Security","t":"What is the \"sys_id\" of a record?","type":"sng","opts":["The display name field shown in reference dropdowns","A globally unique identifier (GUID) automatically assigned to every record in every table","The internal name of a table","The primary key used only on the task table"],"c":[1],"e":"sys_id is a GUID assigned to every record in every table."},
-{"d":"Database Management and Platform Security","t":"Which field type stores a link to a record in another table and displays that record's display value?","type":"sng","opts":["String","Integer","Reference","Choice"],"c":[2],"e":"Reference field stores a link to another record."},
-{"d":"Database Management and Platform Security","t":"What is a \"Dictionary Override\" used for?","type":"sng","opts":["Changing the attributes of a field on an extended/child table without modifying the parent table's field definition","Overriding an ACL rule for a specific application scope","Renaming a table in a specific language","Replacing a field's display value with a calculated value"],"c":[0],"e":"Dictionary Override modifies an inherited field on a child table only."},
-{"d":"Database Management and Platform Security","t":"What is an Access Control (ACL) rule used for?","type":"sng","opts":["Defining which roles can read, write, create, or delete records and fields in a table","Encrypting data as it moves between instances","Scheduling which users can log in during specific hours","Controlling which fields are exported in an Update Set"],"c":[0],"e":"ACL controls who can read/write/create/delete on tables or fields."},
-{"d":"Database Management and Platform Security","t":"Which of the following correctly describes an ACL rule's evaluation order?","type":"sng","opts":["Field-level ACLs first, then record-level ACLs, then table-level ACLs","Table-level ACLs first, then record-level, then field-level — the most specific level wins","All ACL types are evaluated simultaneously and the first match applies","Only one level can exist per table at a time"],"c":[1],"e":"The most specific level wins: table -> record -> field."},
-{"d":"Database Management and Platform Security","t":"What does the \"admin\" role grant in ServiceNow?","type":"sng","opts":["Full unrestricted access to all platform features, tables, and configuration; admins can override ACLs","Read-only access to all tables for auditing purposes","Permission to manage user accounts and groups only","Access limited to the Service Portal and self-service modules"],"c":[0],"e":"admin = full platform access, including ACL override."},
-{"d":"Database Management and Platform Security","t":"How are roles typically granted to users? *(Choose 2)*","type":"mul","opts":["Assigned directly on the user's record","Inherited through membership in a group that has the role assigned","Automatically assigned based on the user's department field value","Deployed by running an Update Set on the production instance"],"c":[0,1],"e":"Roles are usually granted directly or via group inheritance."},
-{"d":"Database Management and Platform Security","t":"What is the purpose of an \"Import Set\" in ServiceNow?","type":"sng","opts":["A staging table that holds data imported from an external source before it is transformed into a target ServiceNow table","A container for moving configuration changes between instances","A scheduled job extracting CMDB data nightly","A method for exporting records to an external system"],"c":[0],"e":"Import Set is a staging table before transform."},
-{"d":"Database Management and Platform Security","t":"What is a \"Transform Map\" used for?","type":"sng","opts":["Defining how each field in an Import Set table maps to a field in the target ServiceNow table","Converting Update Set XML from one format to another","Translating UI labels into different languages","Mapping CI relationships between CMDB classes"],"c":[0],"e":"Transform Map = field mapping from staging to target table."},
-{"d":"Database Management and Platform Security","t":"What is the definition of Transform Maps in ServiceNow?","type":"sng","opts":["A map used to store the history of incident records","A map used to add data to encrypted fields","A map used to trigger Business Rules before data is queued in an outbound web service","A map to determine relationships between fields in an Import Set and fields in an existing table"],"c":[3],"e":"Official blueprint sample answer: relationships between staging and target fields."},
-{"d":"Database Management and Platform Security","t":"What is a \"Coalesce\" field in a Transform Map?","type":"sng","opts":["A field that prevents duplicate records by matching incoming import data against existing records","A required field that must be present for a transform to execute","A field that combines multiple source columns into one target field","A field that triggers a post-transform business rule"],"c":[0],"e":"Coalesce is the match key used to prevent duplicate imports."},
-{"d":"Database Management and Platform Security","t":"What is the CMDB (Configuration Management Database) used for in ServiceNow?","type":"sng","opts":["Storing and managing configuration items (CIs) and their relationships to support IT service management","Staging imported data before transformation","Archiving closed incident records for compliance","Storing Update Set deployment history"],"c":[0],"e":"CMDB is the authoritative CI inventory plus relationships."},
-{"d":"Database Management and Platform Security","t":"Which of the following are examples of CI classes in the CMDB? *(Choose 2)*","type":"mul","opts":["cmdb_ci_server (Server)","sys_user (User)","cmdb_ci_appl (Application)","sc_request (Service Catalog Request)"],"c":[0,2],"e":"Server and Application are CMDB CI classes."},
-{"d":"Database Management and Platform Security","t":"What is the \"Common Service Data Model\" (CSDM) in ServiceNow?","type":"sng","opts":["A standard framework and data model that defines how business services, technical services, and CIs relate to each other across the CMDB","A plugin for importing external customer data into the CMDB","A reporting model for service desk KPIs","A data schema for the Service Catalog variables"],"c":[0],"e":"CSDM defines how services and CIs relate."},
-{"d":"Database Management and Platform Security","t":"What is the \"Security Center\" (formerly Instance Security Center) used for?","type":"sng","opts":["A consolidated dashboard for monitoring instance security compliance, viewing security events, configuring hardening settings, and managing user sessions","A marketplace for approved security plugins","A tool for scanning Update Sets for malicious scripts before commit","A report generator for PCI audit evidence"],"c":[0],"e":"Security Center covers compliance, events, hardening, and sessions."},
-{"d":"Database Management and Platform Security","t":"What is the \"Daily Compliance Score\" in the Security Center?","type":"sng","opts":["A percentage score indicating how compliant the instance's security property settings are with recommended hardening guidelines","A count of failed login attempts in the last 24 hours","The percentage of incidents resolved within SLA in the past day","A daily export of the instance's ACL configuration to a compliance team"],"c":[0],"e":"Daily Compliance Score = % of hardening properties correctly configured."},
-{"d":"Database Management and Platform Security","t":"What does the \"Shared Responsibility Model\" mean in the context of ServiceNow cloud security?","type":"sng","opts":["ServiceNow is responsible for the security of the cloud infrastructure; the customer is responsible for configuring and securing their instance","ServiceNow and the customer share equal responsibility for all security decisions","The customer is fully responsible for all security, including the underlying cloud infrastructure","ServiceNow handles all instance security automatically; no customer action is required"],"c":[0],"e":"ServiceNow secures the platform; customer secures their instance."},
-{"d":"Data Migration and Integration","t":"What is the scripting language used in ServiceNow?","type":"sng","opts":["Java","AngularJS","JavaScript","Jelly"],"c":[2],"e":"JavaScript is the scripting language in ServiceNow."},
-{"d":"Data Migration and Integration","t":"What is a \"Business Rule\" in ServiceNow?","type":"sng","opts":["A server-side script that runs when a record is displayed, inserted, updated, or deleted, or when a table is queried","A client-side script that validates fields before form submission","A scheduled job that runs on a defined interval","A configuration record that defines escalation paths"],"c":[0],"e":"Business Rule is a server-side script on record events."},
-{"d":"Data Migration and Integration","t":"A Business Rule is configured with \"When = before\" and \"Insert = true\". When does this rule execute?","type":"sng","opts":["Before the form is displayed to the user","After the user submits the form and after the record is saved to the database","After the user submits the form but before the record is saved to the database","Only when triggered manually by a script"],"c":[2],"e":"A before-insert rule runs after submit but before database write."},
-{"d":"Data Migration and Integration","t":"Which of the following are valid \"When\" settings for a Business Rule? *(Choose 2)*","type":"mul","opts":["Before","Inline","After","On Submit"],"c":[0,2],"e":"Before and After are the primary settings; Async/Before/After are typical core forms."},
-{"d":"Data Migration and Integration","t":"What global variable in a Business Rule refers to the current state of the record being acted upon?","type":"sng","opts":["g_form","gs","current","previous"],"c":[2],"e":"current is the record being processed right now."},
-{"d":"Data Migration and Integration","t":"What does the global variable `previous` refer to in a Business Rule?","type":"sng","opts":["The state of the record before any updates made in the current transaction — available on update and delete operations only","The record that was last saved by any user","The parent record of the current record","The prior version of the business rule script"],"c":[0],"e":"previous is state before the current transaction, update/delete only."},
-{"d":"Data Migration and Integration","t":"What is a \"UI Policy\" in ServiceNow?","type":"sng","opts":["A server-side rule that enforces mandatory fields at the database level regardless of access method","A no-code configuration that dynamically controls form field behavior (mandatory, read-only, hidden) based on conditions in the browser","A policy that defines which users can access a specific module","A visual theme setting for the Service Portal"],"c":[1],"e":"UI Policy is no-code, browser-side field behavior control."},
-{"d":"Data Migration and Integration","t":"What is the key difference between a \"UI Policy\" and a \"Data Policy\"?","type":"sng","opts":["UI Policies apply only in the browser (forms); Data Policies enforce field rules at the database level and apply regardless of access method","UI Policies are server-side; Data Policies are client-side","UI Policies apply to all tables; Data Policies apply only to custom tables","UI Policies set field visibility; Data Policies set record-level security"],"c":[0],"e":"UI Policy = browser only; Data Policy = database-level, all access methods."},
-{"d":"Data Migration and Integration","t":"In which state must an Update Set be before it can be exported from a source instance?","type":"sng","opts":["In Progress","Ignored","Complete","Committed"],"c":[2],"e":"An Update Set must be Complete before it can be exported."},
-{"d":"Data Migration and Integration","t":"What is the correct order of steps for moving a completed Update Set from Instance A to Instance B?","type":"sng","opts":["Export from A -> Preview in B -> Commit in B -> Import into B","Export from A -> Import (or Retrieve) into B -> Preview in B -> Commit in B","Commit in A -> Export from A -> Import into B -> Preview in B","Import into B -> Export from A -> Preview in B -> Commit in B"],"c":[1],"e":"Export -> Import/Retrieve -> Preview -> Commit. Never skip Preview."},
-{"d":"Data Migration and Integration","t":"Which of the following record types are automatically captured by an Update Set? *(Choose 2)*","type":"mul","opts":["Business Rules","Incident records (actual ticket data)","UI Policies","User password records"],"c":[0,2],"e":"Business Rules and UI Policies are configuration records captured by Update Sets; ticket data/passwords are not."},
-{"d":"Data Migration and Integration","t":"What is a \"Script Include\" in ServiceNow?","type":"sng","opts":["A reusable server-side JavaScript library that can be called from business rules, client scripts (via GlideAjax), and other server-side scripts","A tag that embeds an external JavaScript file into a form","A client-side script that runs on every page load","A scheduled script that executes daily"],"c":[0],"e":"Script Include is a reusable server-side JavaScript library."}
-];
-const order = questions.map((_,i)=>i);
-function render(){
-const qwrap = document.getElementById('questions');
-qwrap.innerHTML='';
-const seen = new Set();
-order.forEach((oi,idx)=>{
-const q = questions[oi];
-if(seen.has(q.t)) return;
-seen.add(q.t);
-const box = document.createElement('div');
-box.className='q';
-box.dataset.idx = idx;
-const title = document.createElement('h3');
-title.textContent = (idx+1)+'. '+q.t;
-box.appendChild(title);
-const opts = document.createElement('div');
-opts.className='opts';
-q.opts.forEach((o,oi2)=>{
-const lbl = document.createElement('label');
-const inp = document.createElement('input');
-inp.type = q.type==='mul'?'checkbox':'radio';
-inp.name = 'q'+idx;
-inp.value = oi2;
-lbl.appendChild(inp);
-const span = document.createElement('span');
-span.textContent = String.fromCharCode(65+oi2)+'. '+o;
-lbl.appendChild(span);
-opts.appendChild(lbl);
-});
-box.appendChild(opts);
-const summary = document.createElement('details');
-const sumTitle = document.createElement('summary');
-sumTitle.textContent='Answer / Explanation';
-summary.appendChild(sumTitle);
-const body = document.createElement('div');
-body.style.marginTop='8px';
-body.innerHTML='<strong>Answer:</strong> '+(q.c.map(i=>String.fromCharCode(65+i)).join(', ')||'—')+'<br/><strong>Explanation:</strong> '+(q.e||'—');
-summary.appendChild(body);
-box.appendChild(summary);
-qwrap.appendChild(box);
-});
-document.getElementById('status').textContent = questions.length+' questions';
+const questions = [{"d": "Platform Overview and Navigation", "t": "Which application is available to ALL users by default in ServiceNow?", "type": "sng", "opts": [], "c": [3], "e": ""}, {"d": "Platform Overview and Navigation", "t": "Which module displays tasks assigned to a user's group but NOT yet assigned to an individual?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Platform Overview and Navigation", "t": "What is the Application Navigator used for?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Platform Overview and Navigation", "t": "A user wants to return quickly to a frequently used module without searching. Which feature should they use?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Platform Overview and Navigation", "t": "In Next Experience Unified Navigation, where does a user set personal preferences such as time zone, language, and theme?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Platform Overview and Navigation", "t": "What is the Service Portal in ServiceNow?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Platform Overview and Navigation", "t": "Where can a user find recently viewed records in the Next Experience UI?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Platform Overview and Navigation", "t": "Which of the following are typical starting points for navigation in the Next Experience UI? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Instance Configuration", "t": "What is a Plugin in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Instance Configuration", "t": "Why would an administrator install a plugin on a ServiceNow instance?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Instance Configuration", "t": "What is the purpose of System Properties (sys_properties)?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Instance Configuration", "t": "A ServiceNow admin wants to copy the production instance's data and configuration onto a development instance. What is this process called?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Instance Configuration", "t": "What is a MID Server?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Instance Configuration", "t": "Which plugin or application would enable HR Service Delivery capabilities on an instance?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Instance Configuration", "t": "Which interface is best for adding UI text and widgets without writing code?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Instance Configuration", "t": "A user wants to personalize which columns appear in their list view. What feature allows this?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Instance Configuration", "t": "Which of the following can be personalized per user in the platform? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Instance Configuration", "t": "What setting path is used when configuring application-specific instance behavior?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What does the breadcrumb filter at the top of a ServiceNow list do?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What does \"grouping\" records in a list do?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is a View on a ServiceNow form?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is a Form Template used for?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is the purpose of Tags in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is a reference qualifier used for?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "Which form section behavior hides content from view while keeping it on the record?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "Which of the following best describes a Visual Task Board (VTB)?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What are the three types of Visual Task Boards? *(Choose 3)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is the difference between a Report and a Dashboard?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "By default, who can see a report after it is created?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "Which report type best shows the proportion of open incidents by category?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What does Performance Analytics add beyond standard table reports?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "A report shows duplicate rows for the same user. What should an admin check first?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is an Email Notification in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is an Inbound Action used for?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What are Work Notes vs Additional Comments on a task record?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "What is the purpose of an SLA (Service Level Agreement) on a task?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "Which best describes rota-based task assignment for a task queue?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "When should an admin avoid heavy email notifications for high-volume events?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "Which dashboard type is best suited for executive KPI review and trend tracking?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Configuring Applications for Collaboration", "t": "Where are notification definitions configured for a given table?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "What is a Knowledge Base in ServiceNow used for? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Self-Service & Automation", "t": "Which knowledge article state allows end users to find and read the article?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "Which role is typically required to publish a knowledge article?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "What controls which users can see a specific Knowledge Base or Service Catalog item?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "Which data structure supports nested categorization of knowledge articles?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "In the Service Catalog, what is a Catalog Item?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Self-Service & Automation", "t": "What record is created when a user submits a Service Catalog request?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "Multiple Choice, Single Line Text, and Select Box are what type of element in ServiceNow?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Self-Service & Automation", "t": "What is an Order Guide in the Service Catalog?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Self-Service & Automation", "t": "What is the difference between a Record Producer and a Catalog Item?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "How is the request workflow triggered when a user orders a catalog item?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "In Flow Designer, what is the difference between a Flow and a Subflow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Self-Service & Automation", "t": "Which of the following can trigger a Flow Designer flow? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Self-Service & Automation", "t": "A self-service flow needs to pause and wait for a manager's approval before continuing. Which pattern is standard in Flow Designer?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Self-Service & Automation", "t": "What is Virtual Agent in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Self-Service & Automation", "t": "Virtual Agent topics can be authored using which of the following? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Self-Service & Automation", "t": "When should Virtual Agent be preferred over a static knowledge article? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Self-Service & Automation", "t": "What does Virtual Agent \"deflection\" mean?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "In ServiceNow, what is a Table?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Database Management and Platform Security", "t": "Which table is the parent (base) for Incident, Problem, and Change Request?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Database Management and Platform Security", "t": "What does it mean for one table to extend another?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Database Management and Platform Security", "t": "Which object defines the schema (fields and their properties) of a table in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is the sys_id of a record?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "Which field type stores a link to a record in another table and displays that record's display value?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is a Dictionary Override used for?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is an Access Control (ACL) rule used for?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Database Management and Platform Security", "t": "Which describes ACL evaluation order — from most general to most specific?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "A standard user cannot view a record they should be able to see. Which should an admin check first?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "A support engineer can view incidents but cannot create new ones. What is the most likely cause?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "What does the admin role grant in ServiceNow?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Database Management and Platform Security", "t": "How are roles typically granted to users? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Database Management and Platform Security", "t": "Why is separating user roles a security principle in ServiceNow?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "Which capability helps identify users with excess privileges?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is the purpose of an Import Set in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is a Transform Map used for?", "type": "sng", "opts": [], "c": [3], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is a Coalesce field in a Transform Map?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "Before importing a large data set, which step helps avoid bulk transform failures?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "When a data migration fails with duplicate key errors, what is the first thing to check?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is the CMDB used for in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Database Management and Platform Security", "t": "Which of the following are examples of CI classes in the CMDB? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Database Management and Platform Security", "t": "What does CSDM stand for, and what is it used for?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "Which application supports automated CI population in the CMDB?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "What does CMDB reconciliation do?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is the Security Center (formerly Instance Security Center) used for?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Database Management and Platform Security", "t": "What is the Daily Compliance Score in the Security Center?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Database Management and Platform Security", "t": "What does the Shared Responsibility Model mean in the context of ServiceNow cloud security?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Data Migration and Integration", "t": "Which record types are automatically captured by the current Update Set? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Data Migration and Integration", "t": "Which capabilities are associated with compare tools for conflict resolution? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Data Migration and Integration", "t": "What is an Update Set?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Data Migration and Integration", "t": "Which tasks does a user perform when inspecting and reporting on Update Sets? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Data Migration and Integration", "t": "What does Instance Scan evaluate? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Data Migration and Integration", "t": "Which components does an Update Set contain? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Data Migration and Integration", "t": "What is the purpose of merging Update Sets in ServiceNow?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Data Migration and Integration", "t": "What action do administrators perform when inspecting an Update Set?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Data Migration and Integration", "t": "Which action is explicitly warned against because it can damage the system?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Data Migration and Integration", "t": "Which format is used to represent Update Sets?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Data Migration and Integration", "t": "What is the correct order of steps for moving a Completed Update Set between instances?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Data Migration and Integration", "t": "Which activity is an ideal use of Update Sets?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Data Migration and Integration", "t": "Which is listed as a component contained within an Update Set?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Data Migration and Integration", "t": "What is the purpose of marking an Update Set as \"Ignore\" in production after committing?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Data Migration and Integration", "t": "What is the scripting language used in ServiceNow?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Data Migration and Integration", "t": "What is a Business Rule in ServiceNow?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Data Migration and Integration", "t": "A Business Rule is configured with \"When = before\" and \"Insert = true\". When exactly does it execute?", "type": "sng", "opts": [], "c": [2], "e": ""}, {"d": "Data Migration and Integration", "t": "Which of the following are valid \"When\" settings for a Business Rule? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Data Migration and Integration", "t": "What are the predefined global variables available in a Business Rule? *(Choose 2)*", "type": "sng", "opts": [], "c": [], "e": ""}, {"d": "Data Migration and Integration", "t": "What is a UI Policy in ServiceNow?", "type": "sng", "opts": [], "c": [1], "e": ""}, {"d": "Data Migration and Integration", "t": "What is the key difference between a UI Policy and a Data Policy?", "type": "sng", "opts": [], "c": [0], "e": ""}, {"d": "Data Migration and Integration", "t": "What is a Script Include in ServiceNow?", "type": "sng", "opts": [], "c": [2], "e": ""}]
+
+const wrap=document.getElementById('qwrap');
+const prog=document.getElementById('prog');
+const score=document.getElementById('score');
+const totalPill=document.getElementById('totalPill');
+let order=[...Array(questions.length).keys()];
+
+function renderItem(q,i){
+  const box=document.createElement('article');
+  box.className='q';box.dataset.i=i;
+  const head=document.createElement('div');head.className='q-head';
+  const title=document.createElement('h3');title.textContent=`${i+1}. ${q.t}`;
+  const badge=document.createElement('span');badge.className='badge';badge.textContent=q.type==='mul'?'Select all that apply':'Select one';
+  head.append(title,badge);
+  const opts=document.createElement('div');opts.className='opts';
+  const inputType=q.type==='mul'?'checkbox':'radio',name=`q_${i}`;
+  q.opts.forEach((txt,o)=>{
+    const row=document.createElement('label');row.className='choice';
+    const inp=document.createElement('input');inp.type=inputType;inp.name=name;inp.value=o;
+    inp.addEventListener('change',upd);
+    const span=document.createElement('span');span.textContent=txt;
+    row.append(inp,span);opts.appendChild(row);
+  });
+  const expl=document.createElement('div');expl.className='explain';expl.textContent=q.e||'';
+  box.append(head,opts,expl);
+  return box;
 }
-function updateProgress(){
-const checked = Array.from(document.querySelectorAll('input:checked'));
-document.getElementById('status').textContent = checked.length+' / '+questions.length+' answered';
+
+function build(){
+  wrap.innerHTML='';
+  const byDomain={};
+  order.forEach((srcIdx,displayIdx)=>{
+    const q=questions[srcIdx];
+    (byDomain[q.d]=byDomain[q.d]||[]).push({q,displayIdx});
+  });
+  Object.keys(byDomain).forEach(dom=>{
+    const sec=document.createElement('section');
+    const domHead=document.createElement('div');domHead.className='domain';
+    const domTitle=document.createElement('div');domTitle.className='domain-title';domTitle.textContent=dom;
+    domHead.appendChild(domTitle);
+    sec.appendChild(domHead);
+    byDomain[dom].forEach(({q,displayIdx})=>sec.appendChild(renderItem(q,displayIdx)));
+    wrap.appendChild(sec);
+  });
+  upd();
 }
-document.getElementById('questions').addEventListener('change', updateProgress);
-document.getElementById('submit').addEventListener('click',()=>{
-const boxes = document.querySelectorAll('.q');
-let correct = 0;
-let answered = 0;
-const lines = [];
-boxes.forEach((box,idx)=>{
-const i = +box.dataset.idx;
-const q = questions[i];
-const checked = Array.from(box.querySelectorAll('input:checked')).map(el=>+el.value);
-if(!checked.length) return;
-answered++;
-const ok = checked.join(',')===q.c.join(',');
-if(ok) correct++;
-lines.push((idx+1)+'. '+q.t+' -> '+(ok?'Correct':'Incorrect'));
-});
-const result = document.getElementById('result');
-result.style.display='block';
-result.classList.remove('ok','bad');
-result.classList.add(answered? (correct===answered?'ok':'bad') : 'ok');
-result.textContent = answered? 'Score: '+correct+' / '+answered : 'No answers submitted.';
-});
-document.getElementById('reset').addEventListener('click',()=>{
-document.querySelectorAll('input:checked').forEach(el=>el.checked=false);
-document.getElementById('result').style.display='none';
-updateProgress();
-});
-document.getElementById('shuffle').addEventListener('click',()=>{
-order = order.map(x=>({x,r:Math.random()})).sort((a,b)=>a.r-b.r).map(o=>o.x);
-render();
-});
-render();
+
+function submitAll(){
+  document.querySelectorAll('.q').forEach(box=>{
+    const i=+box.dataset.i;
+    const q=questions[order[i]];
+    const expl=box.querySelector('.explain');
+    const checked=[];
+    box.querySelectorAll('input:checked').forEach(c=>checked.push(+c.value));
+    const correct = checked.join(',')===q.c.join(',');
+    expl.classList.add('show',correct?'ok':'bad');
+    box.querySelectorAll('label.choice').forEach((lb,o)=>{
+      lb.style.borderColor=(q.c.includes(o)?'#86efac':'#fecaca');
+      lb.style.background=(q.c.includes(o)?'rgba(240,253,244,.6)':'rgba(254,242,242,.5)');
+    });
+    const existing=box.querySelector('.q-head .badge');
+    if(existing) existing.remove();
+    const b=document.createElement('span');
+    b.className='badge '+(correct?'pass':'fail');
+    b.textContent=correct?'Correct':'Review';
+    box.querySelector('.q-head').appendChild(b);
+  });
+  document.body.classList.add('done');
+  upd();
+}
+
+function resetAll(){
+  document.querySelectorAll('.q').forEach(box=>{
+    box.querySelectorAll('input:checked').forEach(c=>c.checked=false);
+    const expl=box.querySelector('.explain');expl.className='explain';
+    box.querySelectorAll('.badge').forEach(b=>b.remove());
+    const i=+box.dataset.i;
+    const badge=document.createElement('span');badge.className='badge';
+    badge.textContent=questions[order[i]].type==='mul'?'Select all that apply':'Select one';
+    box.querySelector('.q-head').appendChild(badge);
+    box.querySelectorAll('label.choice').forEach(lb=>{lb.style.borderColor='';lb.style.background='';});
+  });
+  document.body.classList.remove('done');
+  upd();
+}
+
+function upd(){
+  const answered=document.querySelectorAll('.q input:checked').length;
+  prog.textContent=`${answered} / ${questions.length}`;
+  totalPill.textContent=`${questions.length} questions`;
+  let sc=0,att=0;
+  document.querySelectorAll('.q').forEach(box=>{
+    const i=+box.dataset.i;
+    const q=questions[order[i]];
+    const checked=[];
+    box.querySelectorAll('input:checked').forEach(c=>checked.push(+c.value));
+    if(!checked.length) return;
+    att++;
+    if(checked.join(',')===q.c.join(',')) sc++;
+  });
+  score.textContent=att?Math.round((sc/att)*100)+'%':'0%';
+}
+
+function shuffle(){
+  for(let i=order.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [order[i],order[j]]=[order[j],order[i]];
+  }
+  build();
+}
+
+build();
 </script>
 </body>
 </html>
