@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ServiceNow CSA Practice — Master Bank (108 Questions)</title>
+<title>ServiceNow CSA Practice — Merged Set</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Berkeley+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
     --shadow-hover:0 4px 12px rgba(20,19,17,.08),0 12px 30px rgba(20,19,17,.10);
   }
   *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Geist',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' opacity='.45'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Geist',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' opacity='.45'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   header{position:sticky;top:0;z-index:50;background:rgba(245,242,237,.78);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--border);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   h1{font-family:'Berkeley Mono',monospace;font-size:15px;font-weight:500;letter-spacing:-.2px;margin:0;color:var(--ink)}
@@ -57,7 +57,7 @@
 <body>
 <header>
   <div class="brand">
-    <h1>ServiceNow CSA Practice — Master Bank</h1>
+    <h1>ServiceNow CSA Practice — Merged Set</h1>
     <span class="pill" id="totalPill">loading…</span>
   </div>
   <div class="controls">
@@ -184,10 +184,7 @@ function upd(){
 }
 
 function shuffle(){
-  for(let i=order.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [order[i],order[j]]=[order[j],order[i]];
-  }
+  order=order.map(x=>({x,r:Math.random()})).sort((a,b)=>a.r-b.r).map(o=>o.x);
   build();
 }
 
